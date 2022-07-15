@@ -1,0 +1,30 @@
+#Get User's Name
+loop = False
+while loop == False:
+    name = input("Enter your name: ")
+    #Making Name Alphabetical and Lowercase
+    name = name.lower()
+    name = ''.join(filter(str.isalpha, name))
+    alpha = name.isalpha()
+    if alpha == False:
+        print("Invalid name, try again")
+    else:
+        loop = True
+
+#Finding the Numerology!
+reduced = ""
+total = 0
+counter = 0
+for i in name:
+    num = int(ord(i)) - 96
+    s_num = str(num)
+    total += num
+    counter += 1
+    if counter == len(name):
+        reduced += s_num + " = " + str(total)
+    else:
+        reduced += s_num + " + "
+
+#Output
+print("Your 'cleaned up' name is:", name)
+print("Your 'cleaned up' name reduces to:", reduced, "\n")
